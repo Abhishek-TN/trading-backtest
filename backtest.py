@@ -38,10 +38,10 @@ class Backtest:
             buy_date = None
 
             for i in range(len(df)):
-                if not in_position and df["close"].iloc[i] < df["lower_band"].iloc[i] * 0.97:
+                if not in_position and df["low"].iloc[i] < df["lower_band"].iloc[i] * 0.97:
                     # Buy condition
                     in_position = True
-                    buy_price = df["close"].iloc[i]
+                    buy_price = df["low"].iloc[i]
                     buy_date = df.index[i]
                 elif in_position and df["close"].iloc[i] >= df["upper_band"].iloc[i]:
                     # Sell condition
